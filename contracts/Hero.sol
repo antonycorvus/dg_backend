@@ -13,7 +13,7 @@ interface IHero {
     function mint(address to,uint256 hero_type) external returns (uint256);
 }
 
-
+//sua lan cuoi
 contract Hero is ERC721Enumerable, Ownable,AccessControlEnumerable,IHero {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdTracker;
@@ -22,7 +22,7 @@ contract Hero is ERC721Enumerable, Ownable,AccessControlEnumerable,IHero {
 
     event Mint(address to,uint256 hero_type,uint256 tokenid);
 
-    constructor() ERC721("Stickman Hero", "Hero") {
+    constructor() ERC721("Auction BS", "ABS") {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
     }
 

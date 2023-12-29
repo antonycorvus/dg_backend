@@ -12,11 +12,6 @@ async function main() {
     // const daugia = await DauGia.deploy();
     // console.log('DauGia address: ', daugia.address);
     // Config.setConfig(network + '.DauGia', daugia.address);
-
-    // const Vault = await ethers.getContractFactory("Vault");
-    // const vault = await Vault.deploy();
-    // console.log('Floppy address: ', vault.address);
-    // Config.setConfig(network + '.Vault', vault.address);
     
     // const USDT = await ethers.getContractFactory("USDT");
     // const usdt = await USDT.deploy();
@@ -36,15 +31,15 @@ async function main() {
 
 
     // const MKP = await ethers.getContractFactory("HeroMarketplace");
-    // const hMarket = await MKP.deploy("0x24DF90b3340830814107ab0ed48aF881Fc338C62", "0x455f28320602bB3CE16997805717D5555d77fCfe");
+    // const hMarket = await MKP.deploy("0x261F3c84AdA78Dcc021ed2db7410cf74F15e27da", "0x455f28320602bB3CE16997805717D5555d77fCfe");
     // console.log('Market deployed at: ', hMarket.address);
     // Config.setConfig(network + '.HMK', hMarket.address);
     
-    //chua deploy vs verify auction
-    const Auction = await ethers.getContractFactory("Auction");
-    const auction = await Auction.deploy("", "");
-    console.log('Auction deployed at: ', auction.address);
-    Config.setConfig(network + '.Auction', auction.address);
+    
+    // const Auction = await ethers.getContractFactory("Auction");
+    // const auction = await Auction.deploy("0x455f28320602bB3CE16997805717D5555d77fCfe", "0x261F3c84AdA78Dcc021ed2db7410cf74F15e27da");
+    // console.log('Auction deployed at: ', auction.address);
+    // Config.setConfig(network + '.Auction', auction.address);
 
     await Config.updateConfig();
     

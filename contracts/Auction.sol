@@ -7,6 +7,8 @@ import "openzeppelin-solidity/contracts/token/ERC721/IERC721.sol";
 import "openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol";
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 
+
+
 contract Auction is IERC721Receiver, Ownable {
 
     // set nft and token
@@ -22,6 +24,8 @@ contract Auction is IERC721Receiver, Ownable {
         nft = _nft;
     }
     
+
+
     function onERC721Received(
         address,
         address,
@@ -34,6 +38,8 @@ contract Auction is IERC721Receiver, Ownable {
             );
     }
     /// auction information
+    //sua lan cuoi
+
     struct AuctionInfo {
         address auctioneer;
         uint256 _tokenId;
@@ -86,6 +92,7 @@ contract Auction is IERC721Receiver, Ownable {
         auction.push(_auction);
     }
 
+//join auction
 
     function joinAuction(uint256 _auctionId, uint256 _bid) public {
 
@@ -118,7 +125,7 @@ contract Auction is IERC721Receiver, Ownable {
         auction[_auctionId].lastBidder = msg.sender;
         auction[_auctionId].lastBid = _bid;
     }
-
+    //finishAuction chỉ tra tien ve cho nguoi dat gia cuoi, chua xu ly duoc tra ve cho nhieu nguoi
     function finishAuction(uint256 _auctionId) public onlyAuctioneer(_auctionId){
         
         require(auction[_auctionId].completed == false, "Auction is already completed");
@@ -142,6 +149,7 @@ contract Auction is IERC721Receiver, Ownable {
         auction[_auctionId].active = false;
     }
 
+    //cancelAuction tra tien lai cho nguoi mo dau gia va nguoi tra gia cuoi cung, khong tra lai tien cho nhung nguoi dâu gia truoc
     function cancelAuction(uint256 _auctionId) public onlyAuctioneer(_auctionId) {
         
         require(auction[_auctionId].completed == false, "Auction is already completed");

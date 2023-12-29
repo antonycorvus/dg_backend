@@ -66,7 +66,7 @@ contract DGCCrowdSale is Ownable {
     function buyTokenByUSDT(uint256 USDTAmount) external {
         uint256 amount = getTokenAmountUSDT(USDTAmount);
         require(
-            msg.sender.balance >= token.balanceOf(address(this)),
+            msg.sender.balance >= USDTAmount,
             "Insufficient account balance"
         );
         require(amount > 0, "Amount is zero");
